@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.calculateDiscount = calculateDiscount;
 function calculateDiscount(price, discountPercentage) {
-    const discount = price * (discountPercentage / 100);
-    const discountDollarAmount = price - discount;
+    var discount = price * (discountPercentage / 100);
+    var discountDollarAmount = price - discount;
     return discountDollarAmount;
 }

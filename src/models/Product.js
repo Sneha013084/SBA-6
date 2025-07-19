@@ -1,11 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Product = void 0;
-class Product {
-    static displayDetails() {
-        throw new Error("Method not implemented.");
-    }
-    constructor(id, title, description, category, price, discountPercentage) {
+var Product = /** @class */ (function () {
+    function Product(id, title, description, category, price, discountPercentage) {
         this.id = id;
         this.title = title;
         this.description = description,
@@ -13,11 +10,15 @@ class Product {
             this.price = price,
             this.discountPercentage = discountPercentage;
     }
-    displayDetails() {
-        return `${this.id} with ${this.title} and ${this.description} with ${this.category} costs $${this.price}.`;
-    }
-    getPriceWithDiscount(price, discountPercentage) {
+    Product.displayDetails = function () {
+        throw new Error("Method not implemented.");
+    };
+    Product.prototype.displayDetails = function () {
+        return "".concat(this.id, " with ").concat(this.title, " and ").concat(this.description, " with ").concat(this.category, " costs $").concat(this.price, ".");
+    };
+    Product.prototype.getPriceWithDiscount = function (price, discountPercentage) {
         return this.price - discountPercentage;
-    }
-}
+    };
+    return Product;
+}());
 exports.Product = Product;

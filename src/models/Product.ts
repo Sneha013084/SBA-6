@@ -7,14 +7,14 @@
     id :number;
     title: string;
     description: string;
-    category: number;
+    category: string;
     price: number;
     discountPercentage : number;
 
     constructor( id :number,
     title: string,
     description: string,
-    category: number,
+    category: string,
     price: number,
     discountPercentage : number){
         this. id = id;

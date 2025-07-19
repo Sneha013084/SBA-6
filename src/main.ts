@@ -24,7 +24,7 @@ async function main() {
         id: number;
         title: string;
         description: string;
-        category: number;
+        category: string;
         price: number;
         discountPercentage: number;
       }) =>
@@ -37,10 +37,10 @@ async function main() {
           p.discountPercentage
         )
     );
-    products.forEach(() => {
-      const tax = calculateTax(products.price, products.category);
+    products.forEach((product:Product) => {
+      const tax = calculateTax(product.price, product.category);
       
-      console.log(`${Product.displayDetails()} `, tax);
+      console.log(`${product.displayDetails()} `, tax); // product.displayDetails is a instance methd, specifically for the created objects.
     });
   } catch (error) {
     console.log("Error occured");
