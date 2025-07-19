@@ -10,16 +10,17 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const Product_1 = require("./models/Product");
+const taxCalculator_1 = require("./utils/taxCalculator");
 const apiService_1 = require("./services/apiService");
 //create instances for the class
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const ProductData = yield (0, apiService_1.fetchData)();
-            //i'm getting an array of products data. For creating a instances of product create function map() 
-            const products = ProductData.map((p) => new Product_1.Product(p.id, p.title, p.description, p.category, p.price, p.discountPercentage));
+            const ProductList = yield (0, apiService_1.fetchData)();
+            //i'm getting an array of products data. For creating a instances of product create function map()
+            const products = ProductList.map((p) => new Product_1.Product(p.id, p.title, p.description, p.category, p.price, p.discountPercentage));
             products.forEach(() => {
-                const tax = products.taxDollarAmount;
+                const tax = (0, taxCalculator_1.calculateTax)(products.price, products.category);
                 console.log(`${Product_1.Product.displayDetails()} `, tax);
             });
         }
